@@ -12,16 +12,25 @@ protocol FD_FeedDetailPresenterInput {
     func setupPresenter()
 }
 
-@objc final class FD_FeedDetailPresenter : FD_BasePresenter, FD_FeedDetailPresenterInput, FD_FeedInteractorOutput {
+@objc final class FD_FeedDetailPresenter : FD_BasePresenter, FD_FeedDetailPresenterInput {
     
-    var dataArray : Array<Any>!
-    
+    var merchant : Merchant!
     
     //MARK: FD_PresenterInput
     override func setupPresenter() {
-        self.view.showFeedState(result:dataArray)
+        self.view.setupInitialState()
+        let interactor = self.interactor as! FD_FeedDetailInteractor
+        interactor.merchant = self.merchant
+        interactor.giveParsedArray()
     }
     
+    override func receivedBuildedData(result : Array<Any>!) {
+        if result.count > 0 {
+            self.view.showFeedState(result: result)
+        } else {
+            self.view.showEmptyState()
+        }
+    }
     
     
 }

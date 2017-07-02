@@ -111,7 +111,7 @@ class MerchantsRequest: FD_Request {
 
 class MerchantsResult: FD_RequestResult {
     
-    var storesArray : Array<Merchant>? = nil
+    var merchantsArray : Array<Merchant>? = nil
     
     private override init() {
         super.init()
@@ -120,7 +120,7 @@ class MerchantsResult: FD_RequestResult {
     override class func initRequestResult(json: Dictionary<String, Any>?,request:FD_Request) -> FD_RequestResult? {
         let result = MerchantsResult()
         let merchants = try! MTLJSONAdapter.models(of: Merchant.self, fromJSONArray: json?["list"] as! Array)
-        result.storesArray = merchants as? Array<Merchant>
+        result.merchantsArray = merchants as? Array<Merchant>
         
         return result
     }
@@ -170,7 +170,7 @@ class CitiesRequest: FD_Request {
 
 class CitiesResult: FD_RequestResult {
     
-    var storesArray : Array<City>? = nil
+    var citiesArray : Array<City>? = nil
     
     private override init() {
         super.init()
@@ -179,7 +179,7 @@ class CitiesResult: FD_RequestResult {
     override class func initRequestResult(json: Dictionary<String, Any>?,request:FD_Request) -> FD_RequestResult? {
         let result = CitiesResult()
         let stores = try! MTLJSONAdapter.models(of: City.self, fromJSONArray: json?["list"] as! Array)
-        result.storesArray = stores as? Array<City>
+        result.citiesArray = stores as? Array<City>
         
         return result
     }

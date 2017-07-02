@@ -24,8 +24,8 @@ protocol FD_BasePresenterInput {
     
     //MARK: FD_FeedInteractorOutput
     
-    /*func recivedFeedItems(result : Array<FD_FeedItem>?) {
+    func receivedBuildedData(result : Array<Any>!) {
         
-    }*/
+    }
     
 }

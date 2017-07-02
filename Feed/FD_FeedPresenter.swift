@@ -12,7 +12,7 @@ protocol FD_PresenterInput {
     func setupPresenter()
 }
 
-@objc final class FD_FeedPresenter : FD_BasePresenter, FD_PresenterInput, FD_FeedInteractorOutput {
+@objc final class FD_FeedPresenter : FD_BasePresenter, FD_PresenterInput {
     
     //MARK: FD_PresenterInput
     override func setupPresenter() {
@@ -23,12 +23,12 @@ protocol FD_PresenterInput {
     
     //MARK: FD_FeedInteractorOutput
     
-    /*func recivedFeedItems(result : Array<FD_FeedItem>?) {
-        if result != nil {
+    override func receivedBuildedData(result : Array<Any>!) {
+        if result.count > 0 {
             self.view.showFeedState(result: result)
         } else {
             self.view.showEmptyState()
         }
-    }*/
+    }
     
 }

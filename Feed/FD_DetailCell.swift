@@ -10,7 +10,7 @@ import UIKit
 
 class FD_DetailCell : UITableViewCell {
     
-    @IBOutlet weak var feedDescriptionLabel: UILabel!
-    @IBOutlet weak var feedImageView: UIImageView!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     
 }
